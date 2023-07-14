@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Asignaturas{% endblock %}
+
+{% load static %}
+
+{% block first_content %}
+<div class="container">
+    <ul class="nav nav-underline">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'especialidades' %}">Especialidades</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'asignaturas' %}">Asignaturas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'apuntes' %}">Apuntes</a>
+        </li>
+</div>
+
+<section class="container my-4 pt-4">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for a in asignaturas %}
+        <div class="col">
+            <div id="asignaturas" class="card">
+                {% if a.image %}
+                <img src="{{a.image.url}}" class="card-img-top" alt="">
+                {% else %}
+                <img src="{% static 'core/img/image_not_found.jpg' %}" class="card-img-top" alt="Image Not Found">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="card-link text-decoration-none"
+                        href="{% url 'apuntes-asignatura' subject=a.id %}">{{a.subject}}</a></h5>
+                    <p class="card-text">Ingresa a tus apuntes aquí</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
+

@@ -1,0 +1,108 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Contacto{% endblock %}
+
+{% load static %}
+
+{% block first_content %}
+<section id="form" class="container my-4 mx-auto">
+    <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="rut" class="form-label">Rut</label>
+            <div class="input-group">
+                {{form.rut}}
+            </div>
+            <small id="error_rut" class="text-danger">Debes ingresar tu rut</small>
+        </div>
+        <div class="col-md-6">
+            <label for="nombre" class="form-label">Nombre</label>
+            <div class="input-group">
+                {{form.name}}
+            </div>
+            <small id="error_nombre_min" class="text-danger">Debes ingresar tu nombre</small>
+            <small id="error_nombre_max" class="text-danger">El nombre excede el largo máximo permitido</small>
+        </div>
+        <div class="col-md-6">
+            <label for="apellido" class="form-label">Apellido</label>
+            <div class="input-group">
+                {{form.last_name}}
+            </div>
+            <small id="error_apellido_min" class="text-danger">Debes ingresar tu apellido</small>
+            <small id="error_apellido_max" class="text-danger">El apellido excede el largo máximo
+                permitido</small>
+        </div>
+        <div class="col-md-6">
+            <label for="fecha_nac" class="form-label">Fecha nacimiento</label>
+            <div class="input-group">
+                {{form.birthday}}
+            </div>
+            <small id="error_nacimiento" class="text-danger">Debes ingresar fecha de nacimiento</small>
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <div class="input-group">
+                {{form.mail}}
+            </div>
+            <small id="error_email" class="text-danger">Formato ingresado es incorrecto</small>
+        </div>
+        <div class="col-md-6">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="password" name="password">
+                <button id="btn-password" class="btn btn-secondary">
+                    <i id="mostrar_pass" class="fa-regular fa-eye"></i>
+                    <i id="ocultar_pass" class="fa-regular fa-eye-slash"></i>
+                </button>
+            </div>
+            <small id="error_password" class="text-danger">
+                <ul>
+                    <li>Entre 6 y 10 caracteres</li>
+                    <li>Debe tener al menos una mayúscula, una minúscula y un número</li>
+                    <li>No puede contener caracteres especiales</li>
+                </ul>
+            </small>
+        </div>
+        <div class="col-12">
+            <label for="direccion">Dirección</label>
+            <input type="text" class="form-control" id="direccion" placeholder="">
+            <small id="error_direccion" class="text-danger">Debes ingresar tu dirección</small>
+        </div>
+        <div class="col-md-6">
+            <label for="comuna" class="form-label">Comuna</label>
+            <select name="comuna" id="comuna" class="form-select">
+                <option selected disabled value="null">Seleccione comuna</option>
+                <option value="1">Santiago</option>
+                <option value="2">Providencia</option>
+                <option value="3">Ñuñoa</option>
+                <option value="4">Recoleta</option>
+                <option value="5">Estación central</option>
+                <option value="6">Recoleta</option>
+            </select>
+            <small id="error_comuna" class="text-danger">Debes seleccionar una comuna</small>
+        </div>
+        <div class="col-md-6">
+            <label for="carrera" class="form-label">Carrera</label>
+            <select name="carrera" id="carrera" class="form-select">
+                <option selected disabled value="null">Seleccione su carrera</option>
+                <option value="1">Analista Programador</option>
+                <option value="2">Ingeniería Informática</option>
+                <option value="3">Ingeniero en Conectividad y Redes</option>
+            </select>
+            <small id="error_carrera" class="text-danger">Debes seleccionar tu carrera</small>
+        </div>
+        <div class="col-12">
+            <label for="comentario" class="form-label">Comentario</label>
+            <textarea class="form-control" id="comentario" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
+            <small id="caracteres">50 caracteres restantes</small>
+        </div>
+        <div class="col-12 my-4">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </form>
+</section>
+{% endblock %}
+
+{% block my_js %}
+<script src="{% static 'core/js/formulario.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Recursos{% endblock %}
+
+{% load static %}
+
+{% block first_content %}
+        <section class="container my-4">
+            <div class="row">
+                <div class="col-lg col-md-12 my-3">
+                    <iframe id="spotify" src="https://open.spotify.com/embed/playlist/4pSvXGMIy1qHtEovkHXCzE?utm_source=generator"frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </div>
+                <div class="col-lg col-md-12 my-auto">
+                    <div id="gatitos" class="container-fluid my-4 text-center"></div>
+                </div>
+                <div class="col-12 my-3">
+                    <iframe id="notion" src="https://v2-embednotion.com/institute-hub-248b59ec8dc044b0b489b714e4faf59b?pvs=4"></iframe>
+                </div>
+            </div>
+        </section>
+    {% endblock %}

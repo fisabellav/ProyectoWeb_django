@@ -1,0 +1,68 @@
+{% extends 'crud/base.html' %}
+
+{% block title %}Especialidades{% endblock %}
+
+{% load static %}
+
+{% block first_content %}
+<section class="container my-4">
+    <div class="row">
+        <div class="col col-md-6 col-lg-4 my-auto">
+            {% if especialidad.image %}
+            <img class="img-fluid img-detail" src="{{especialidad.image.url}}" alt="">
+            {% else %}
+            <img class="img-detail" src="{% static 'crud/img/image_not_found.jpg' %}" alt="">
+            {% endif  %}
+        </div>
+        <hr class="d-md-none">   
+        <div class="col col-lg-8 my-auto">
+            <div class="row">
+                <div class="col-12 ">
+                    <ul class="row list-unstyled">
+                        <li class="col-md-2 col-lg-12 mb-2">ID: <p class="fw-bold">{{especialidad.id}}</p></li>
+                        <li class="col-md-6 mb-2">Especialidad: <p class="fw-bold">{{especialidad.specialization}}</p></li>
+                        <li class="mb-2 text-muted fst-italic">Registrado: <p class="fw-bold">{{especialidad.created_at}}</p></li>
+                        <li class="mb-2 text-muted fst-italic">Última actualización: <p class="fw-bold">{{especialidad.updated_at}}</p></li>
+                    </ul>
+                    <div class="row mt-4">
+                        <div class="col-2 col-md-3 col-lg-1 mx-lg-2">
+                            <a class="btn btn-primary" href="{% url 'especialidades-crud' %}">Volver</a>
+                        </div>
+                        <div class="col-2 col-md-3 col-lg-1 mx-lg-2">
+                            <a class="btn btn-secondary" href="{% url 'specialization-edit' id=especialidad.id  %}">Editar</a>
+                        </div>
+                        <div class="col-2 col-md-3 col-lg-1 mx-lg-2">
+                            <a class="btn btn-success modal-borrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-href="{% url 'specialization-delete' id=especialidad.id %}">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Mensajes</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">¿Estás seguro que deseas eliminar la especialidad seleccionada?<br>Esta acción no
+                    se puede deshacer.</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Me arrepiento</button>
+                <a class="btn btn-primary" id="confirmar-borrar" href="#">¡Dale con todo!</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block my_js %}
+<script src="{% static 'crud/js/funciones.js' %}"></script>
+{% endblock %}

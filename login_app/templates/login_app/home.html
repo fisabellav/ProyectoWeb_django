@@ -1,0 +1,39 @@
+{% extends "login_app/base.html"%}
+
+{% block title %}Home | {% endblock %}
+
+{% load static %}
+
+{% block content %}
+{% include "login_app/navbar.html" %}
+<section class="container-fluid my-4">
+    <div id="carousel-index" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'core/img/carrusel-index_1.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/img/carrusel-index_2.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'core/img/carrusel-index_3.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-index" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-index" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<section class="container my-4 text-center">
+    <img class="us-logo" src="{% static 'core/img/nosotros.png' %}" alt="">
+    <img class="us-logo" src="{% static 'core/img/pipe.png' %}" alt="">
+</section>
+<div class="col-lg col-md-12 my-auto">
+    <div id="gatitos" class="container-fluid my-4 text-center"></div>
+</div>
+{% endblock %}

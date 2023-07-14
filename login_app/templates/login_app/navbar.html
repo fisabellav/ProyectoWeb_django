@@ -1,0 +1,23 @@
+<!--Navbar-->
+{% load static %}
+<nav id="nav" class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <button id="btn-theme" class="btn rounded-fill"><i id="tema-icon" class="bi bi-moon-fill"></i></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                {% if request.session.usuario.rol == 'ADMIN' %}
+                <a class="nav-link " href="{% url 'especialidades' %}">Vista Usuario</a>
+                <a class="nav-link " href="{% url 'especialidades-crud' %}">Vista admin</a>
+                <a class="nav-link " href="/admin">Admin</a>
+                {% else %}
+                <a class="nav-link " href="{% url 'especialidades' %}">Ingresa a tus apuntes</a>
+                {% endif %}
+                <a class="nav-link " href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>

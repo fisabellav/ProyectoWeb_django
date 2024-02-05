@@ -1,1 +1,2 @@
-web: gunicorn ProyectoWeb_django.wsgi
+release: python manage.py collectstatic --noinput
+web: gunicorn myproject.wsgi --log-file -

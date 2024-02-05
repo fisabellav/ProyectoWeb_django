@@ -17,7 +17,7 @@ import crispy_forms
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
@@ -34,9 +34,9 @@ MESSAGE_TAGS = {
 SECRET_KEY = 'django-insecure-)gv4#gz_sp#v8)91ajz#m5i(p6*&m&2jfn+rrk739pu!)j^07c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = fALSE
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'ProyectoWeb_django.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Carga las variables de entorno de tu aplicación en Heroku
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProyectoWeb_django.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proyectoWeb_django.settings')
 
 # Define la base de datos de SQLite3 si no existe la variable de entorno DATABASE_URL
 if not os.environ.get('DATABASE_URL'):
@@ -145,7 +145,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 #Media Files
 MEDIA_URL = '/media/'

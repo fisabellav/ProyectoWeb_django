@@ -34,7 +34,7 @@ MESSAGE_TAGS = {
 SECRET_KEY = 'django-insecure-)gv4#gz_sp#v8)91ajz#m5i(p6*&m&2jfn+rrk739pu!)j^07c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = fALSE
 
 ALLOWED_HOSTS = []
 
@@ -88,14 +88,14 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'proyectoWeb_django.wsgi.application'
+WSGI_APPLICATION = 'ProyectoWeb_django.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 # Carga las variables de entorno de tu aplicación en Heroku
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProyectoWeb_django.settings')
 
 # Define la base de datos de SQLite3 si no existe la variable de entorno DATABASE_URL
 if not os.environ.get('DATABASE_URL'):

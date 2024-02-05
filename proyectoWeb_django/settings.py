@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 import crispy_forms
 from django.contrib.messages import constants as messages
 
@@ -93,12 +94,21 @@ WSGI_APPLICATION = 'proyectoWeb_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Carga las variables de entorno de tu aplicación en Heroku
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myproject.settings')
+
+# Define la base de datos de SQLite3 si no existe la variable de entorno DATABASE_URL
+if not os.environ.get('DATABASE_URL'):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+
+# Sobrescribe la base de datos con la variable de entorno DATABASE_URL si existe
+else:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
 
 # Password validation

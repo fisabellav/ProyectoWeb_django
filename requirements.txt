@@ -35,3 +35,4 @@ sqlparse==0.4.4
 tomlkit==0.11.8
 tzdata==2023.3
 wrapt==1.15.0
+setuptools==62.1.0

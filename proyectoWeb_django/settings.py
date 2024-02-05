@@ -148,8 +148,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "crud/static"),
-    os.path.join(BASE_DIR, "core/static"),
+    os.path.join(BASE_DIR, "crud/static/crud/css"),
+    os.path.join(BASE_DIR, "crud/static/crud/img"),
+    os.path.join(BASE_DIR, "crud/static/crud/js"),
+    os.path.join(BASE_DIR, "core/static/core/js"),
+    os.path.join(BASE_DIR, "core/static/core/img"),
+    os.path.join(BASE_DIR, "core/static/core/css"),
 ]
 
 #Media Files

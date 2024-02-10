@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "api",
     "crispy_forms",
     "login_app",
+    "whitenoise",
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

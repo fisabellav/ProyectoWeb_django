@@ -65,9 +65,9 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'proyectoWeb_django.urls'
@@ -94,22 +94,16 @@ WSGI_APPLICATION = 'ProyectoWeb_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Carga las variables de entorno de tu aplicación en Heroku
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proyectoWeb_django.settings')
-
-# Define la base de datos de SQLite3 si no existe la variable de entorno DATABASE_URL
-if not os.environ.get('DATABASE_URL'):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'apuntesdjango',
+        'USER': 'fer',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
-
-# Sobrescribe la base de datos con la variable de entorno DATABASE_URL si existe
-else:
-    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -146,17 +140,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    os.path.join(BASE_DIR, "crud/static/crud/css"),
-    os.path.join(BASE_DIR, "crud/static/crud/img"),
-    os.path.join(BASE_DIR, "crud/static/crud/js"),
-    os.path.join(BASE_DIR, "core/static/core/js"),
-    os.path.join(BASE_DIR, "core/static/core/img"),
-    os.path.join(BASE_DIR, "core/static/core/css"),
-]
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Media Files

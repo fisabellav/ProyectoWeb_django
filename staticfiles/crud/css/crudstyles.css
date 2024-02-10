@@ -1,0 +1,112 @@
+#container_new{
+    background-color: #855092;
+    color: rgba(255, 255, 255, 0.95);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#form_sptn{
+    background-color: #9563A0;
+    width: 650px;
+    padding: 0;
+    border-radius: 20px;
+}
+
+
+.table-head{
+    background-color: #A174AA;
+    color: rgba(255, 255, 255, 0.95);
+    
+}
+
+.table-body{
+    background-color: #CBB3D0;
+}
+
+.btn-view{
+    color: rgba(106, 70, 114, 0.95);
+}
+
+.btn-edit{
+    color: rgba(71, 47, 76, 0.95);
+}
+
+.btn-delete{
+    color: rgba(35, 23, 38, 0.95);
+}
+
+
+.btn-primary {
+    --bs-btn-color: white;
+    --bs-btn-bg: rgba(35, 23, 38, 0.9);
+    --bs-btn-border-color: rgba(35, 23, 38, 0.9);
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg:rgba(35, 23, 38, 0.99);
+    --bs-btn-hover-border-color:rgba(35, 23, 38, 0.99);
+    --bs-btn-focus-shadow-rgb: rgba(35, 23, 38, 0.99);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: rgba(35, 23, 38, 0.99);
+    --bs-btn-active-border-color: rgba(35, 23, 38, 0.99);
+}
+
+.btn-secondary {
+    --bs-btn-color: white;
+    --bs-btn-bg: rgba(71, 47, 76, 0.9);
+    --bs-btn-border-color: rgba(71, 47, 76, 0.9);
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg:rgba(71, 47, 76, 0.99);
+    --bs-btn-hover-border-color:rgba(71, 47, 76, 0.99);
+    --bs-btn-focus-shadow-rgb: rgba(71, 47, 76, 0.99);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: rgba(71, 47, 76, 0.99);
+    --bs-btn-active-border-color: rgba(71, 47, 76, 0.99);
+}
+
+.btn-success {
+    --bs-btn-color: white;
+    --bs-btn-bg: rgba(106, 70, 114, 0.85);
+    --bs-btn-border-color: rgba(106, 70, 114, 0.85);
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg:rgba(106, 70, 114, 0.99);
+    --bs-btn-hover-border-color:rgba(106, 70, 114, 0.99);
+    --bs-btn-focus-shadow-rgb: rgba(106, 70, 114, 0.99);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: rgba(106, 70, 114, 0.99);
+    --bs-btn-active-border-color: rgba(106, 70, 114, 0.99);
+}
+
+.img-especialidad{
+    width: 100px;
+    height: 125px;
+}
+
+.img-asignatura{
+    width: 125px;
+    height: 100px;
+}
+.img-update{
+    width: 30%;
+    height: 30%;
+}
+
+.img-detail{
+    width: 90%;
+    height: 80%;
+}
+
+.img-detail-asig{
+    width: 90%;
+    height: 100%;
+}
+
+.table-body td h6{
+    padding-top: 25px;
+}
+
+#botones-detail{
+    margin-top: 30%;
+}
+

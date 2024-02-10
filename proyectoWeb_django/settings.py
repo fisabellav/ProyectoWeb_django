@@ -98,10 +98,10 @@ WSGI_APPLICATION = 'ProyectoWeb_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'apuntesdjango',
-        'USER': 'fer',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
+        'NAME': 'ue1rt8wu91qdtsyf',
+        'USER': 't4aox9ot7rp6501s',
+        'PASSWORD': 'w4njc2zn74i0hpy7',
+        'HOST': 'tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 }

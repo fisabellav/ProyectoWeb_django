@@ -30,9 +30,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
 ] 
-
-if settings.DEBUG:
-    from django.views.static import serve
-    urlpatterns += [
-        path(settings.MEDIA_URL.lstrip('/'), serve, {'document_root': settings.MEDIA_ROOT}),
-    ]

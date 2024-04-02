@@ -33,7 +33,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", 'django-insecure-)gv4#gz_sp#v8)91ajz#m5i(p6
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("IS_DEVELOPMENT",True) == 'True'
+DEBUG = True
+# os.getenv("IS_DEVELOPMENT", True) == 'True'
 
 ALLOWED_HOSTS = [os.getenv("APP_HOST"), 
             "127.0.0.1"]
@@ -151,5 +152,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
 
+AWS_S3_ACCESS_KEY_ID = os.environ.get("AWS_S3_ACCESS_KEY_ID")
+AWS_S3_SECRET_ACCESS_KEY = os.environ.get("AWS_S3_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
+AWS_QUERYSTRING_AUTH = False

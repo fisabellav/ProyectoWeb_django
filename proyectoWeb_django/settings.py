@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url
 import crispy_forms
 from django.contrib.messages import constants as messages
 
@@ -30,12 +29,14 @@ MESSAGE_TAGS = {
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)gv4#gz_sp#v8)91ajz#m5i(p6*&m&2jfn+rrk739pu!)j^07c'
+SECRET_KEY = os.getenv("SECRET_KEY", 'django-insecure-)gv4#gz_sp#v8)91ajz#m5i(p6*&m&2jfn+rrk739pu!)j^07c')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv("IS_DEVELOPMENT", True)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [os.getenv("APP_HOST"), 
+            "127.0.0.1"]
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -89,7 +90,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ProyectoWeb_django.wsgi.application'
+WSGI_APPLICATION = 'proyectoWeb_django.wsgi.application'
 
 
 # Database
@@ -97,12 +98,8 @@ WSGI_APPLICATION = 'ProyectoWeb_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ue1rt8wu91qdtsyf',
-        'USER': 't4aox9ot7rp6501s',
-        'PASSWORD': 'w4njc2zn74i0hpy7',
-        'HOST': 'tyduzbv3ggpf15sx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -150,9 +147,9 @@ MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.zdb.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+# DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
 
